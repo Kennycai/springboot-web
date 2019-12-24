@@ -2,17 +2,16 @@ package com.lr.test;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-/**
- * @author kenny.cai
- */
 @SpringBootApplication
 @MapperScan("com.lr.test.dao")
-public class Application {
+public class TestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(TestApplication.class, args);
 	}
 
 }
