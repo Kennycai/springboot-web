@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    addresses: 127.0.0.1
+    username: guest
+    password: guest
+    port: 5672
+    #开启发送失败返回
+#    publisher-returns: true
+#    publisher-confirm-type: simple
+    listener:
+      simple:
+        concurrency: 2
+        #指定最大的消费者数量.
+        max-concurrency: 2
+        acknowledge-mode: auto
+      #开启ack
+      direct:
+        acknowledge-mode: auto
+    #支持消息的确认与返回
+    template:
+      mandatory: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml,classpath:mapper/*/*.xml
+# mybatis log
+logging:
+  level:
+    com:
+      lr:
+        test:
+          dao: debug
